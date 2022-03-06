@@ -1,0 +1,42 @@
+version: '3.8'
+
+services: 
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+# Create envirement variables in .env file
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - FRONT_END=front_end
+
+  front_end:
+    build: .
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - FRONT_END=0.0.0.0
+
+
+  redis:
+    image: redis
+
+  database:
+    image: postgres
+    env_file:
+      - .env/development/database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
