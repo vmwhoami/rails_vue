@@ -41,4 +41,15 @@ Run a the rails image
 `docker run --rm -p 3000:3000 -t rails image_id`
 
 `docker-compose run {{name of your the container you want to start}} /bin/bash`
+
+Install webpacker
 `rails webpacker:install`
+
+Install the react-rails gem
+`rails webpacker:install:vue`
+
+There may be an error compiling 
+<!-- import * as Vue from 'vue' -->
+
+## Read this for puppeteer  
+<!-- http://www.smartjava.org/content/using-puppeteer-in-docker-copy-2/ -->
