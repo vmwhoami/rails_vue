@@ -12,7 +12,7 @@ services:
       - .env/development/database
       - .env/development/web
     environment:
-      - FRONT_END=front_end
+      - WEBPACKER_DEV_SERVER_HOST=front_end
 
   front_end:
     build: .
@@ -20,12 +20,12 @@ services:
     ports:
       - "3035:3035"
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app:cached
     env_file:
       - .env/development/database
       - .env/development/web
     environment:
-      - FRONT_END=0.0.0.0
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
 
 
   redis:
