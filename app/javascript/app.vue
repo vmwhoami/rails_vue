@@ -15,8 +15,9 @@ export default {
 </script>
 
 <style scoped>
-p {
+body {
   font-size: 2em;
   text-align: center;
+  background-color: aliceblue;
 }
 </style>
